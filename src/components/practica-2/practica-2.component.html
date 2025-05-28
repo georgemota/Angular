@@ -1,0 +1,27 @@
+<h2>Práctica 2 - Interpolación</h2>
+
+<h4>Ejercicio #1</h4>
+<p><strong>Mensaje:</strong> {{ welcomeMessage }}</p>
+<hr>
+
+<h4>Ejercicio #2</h4>
+<p>Nombre: {{ person.name }}</p>
+<p>Edad: {{ person.age }}</p>
+<hr>
+
+<h4>Ejercicio #3</h4>
+<p>La resta de los valores es: {{ num1 - num2 }}</p>
+<p>La multiplicación de los valores es: {{ num3 * num4 }}</p>
+<hr>
+
+<h4>Ejercicio #4</h4>
+<p>El área de un círculo con radio {{ radius }} es {{ calcularArea(radius) }}</p>
+<p>El área (opcional) con Math.PI es: {{ calcularAreaOpcional() }}</p>
+<hr>
+
+<h4>Ejercicio #5</h4>
+<p>{{ isLoggedIn ? 'Bienvenido de nuevo' : 'Por favor, inicia sesión' }}</p>
+<hr>
+
+<h4>Ejercicio #6</h4>
+<p>La fecha de hoy es: {{ currentDate | date:'fullDate' }}</p>

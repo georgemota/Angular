@@ -1,0 +1,29 @@
+
+<h4>Ejercicio #1</h4>
+<app-message-component [text]="'Hola, bienvenido a Angular!'"></app-message-component>
+<hr>
+
+<h4>Ejercicio #2</h4>
+<app-color-box-component [color]="'lightblue'"></app-color-box-component>
+<hr>
+
+<h4>Ejercicio #3</h4>
+<app-alert-button-component (alert)="showAlert($event)"></app-alert-button-component>
+<hr>
+
+<h4>Ejercicio #4</h4>
+<app-counter-component (countChanged)="updateCount($event)"></app-counter-component>
+<hr>
+
+<h4>Ejercicio #5</h4>
+<p>{{ 'hola mundo' | uppercase }}</p>
+<hr>
+
+<h4>Ejercicio #6</h4>
+<p>{{ 'Angular es increíble' | firstWord }}</p>
+<hr>
+
+<h4>Ejercicio #7</h4>
+<p>{{ 'Angular' | reverseText }}</p>
+
+

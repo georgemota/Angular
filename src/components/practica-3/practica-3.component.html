@@ -1,0 +1,66 @@
+<h4>Ejercicio #1</h4>
+<button (click)="toggleVisibility()">
+    {{ isVisible ? 'Ocultar' : 'Mostrar' }} mensaje
+  </button>
+  
+  @if (isVisible) {
+    <p>¡Bienvenido al curso de Angular!</p>
+  }
+  <hr>
+
+  <h4>Ejercicio #2</h4>
+<ul>
+  @for (fruta of frutas; track fruta) {
+    <li>{{ fruta }}</li>
+  }
+</ul>
+
+<button (click)="agregarFruta()">Agregar fruta</button>
+<hr>
+
+<h4>Ejercicio #3</h4>
+<p [ngClass]="{
+  'verde': score >= 90,
+  'azul': score >= 60 && score < 90,
+  'rojo': score <= 59
+}">
+  Puntaje actual: {{ score }}
+</p>
+
+<button (click)="aumentar()">Aumentar +1</button>
+<button (click)="disminuir()">Disminuir -1</button>
+
+@if (score >= 90) {
+  <p>Excelente</p>
+} @else if (score >= 60) {
+  <p>Aprobado</p>
+} @else {
+  <p>Reprobado</p>
+}
+<hr>
+
+<h4>Ejercicio #4</h4>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (usuario of usuarios; track usuario) {
+      <tr>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.edad }}</td>
+        <td>
+          @if (usuario.activo) {
+            <span>Activo</span>
+          } @else {
+            <span>Inactivo</span>
+          }
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

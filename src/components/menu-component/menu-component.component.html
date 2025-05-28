@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm px-4">
+  <div class="container-fluid">
+    <!-- 🔻 Ícono Angular (izquierda) -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <i class="bi bi-box-fill fs-4"></i> <!-- Ícono a la izquierda -->
+    </a>
+
+    <!-- 🔻 Botón hamburguesa en móviles -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- 🔻 Menú central -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" routerLink="/practica-1" routerLinkActive="active">PRACTICA 1</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/practica-2" routerLinkActive="active">PRACTICA 2</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/practica-3" routerLinkActive="active">PRACTICA 3</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/practica-4" routerLinkActive="active">PRACTICA 4</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/practica-5" routerLinkActive="active" (click)="reloadPractica5()">PRACTICA 5</a></li>
+      </ul>
+    </div>
+
+    <!-- ✅ Redes sociales con componente compartido -->
+    <div class="d-flex align-items-center gap-3">
+      <app-shared-icon-link 
+        icon="bi-github" 
+        url="https://github.com/usuario/repositorio"
+        color="text-white"
+        size="fs-5"
+      ></app-shared-icon-link>
+
+      <app-shared-icon-link 
+        icon="bi-linkedin" 
+        url="https://linkedin.com/in/usuario"
+        color="text-white"
+        size="fs-5"
+      ></app-shared-icon-link>
+    </div>
+  </div>
+</nav>
+
+<main style="padding: 20px;">
+  <router-outlet></router-outlet>
+</main>
