@@ -6,10 +6,10 @@ import { Practica4Component } from '../components/practica-4/practica-4.componen
 import { Practica5Component } from '../components/practica-5/practica-5.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'first', pathMatch: 'full' },
-  { path: 'practica-1', component: Practica1Component },
-  { path: 'practica-2', component: Practica2Component },
-  { path: 'practica-3', component: Practica3Component },
-  { path: 'practica-4', component: Practica4Component },
-  { path: 'practica-5', component: Practica5Component }
+  { path: '', redirectTo: 'practica-1', pathMatch: 'full' },
+  { path: 'practica-1', component: Practica1Component, data: { animation: 'Practica1'} },
+  { path: 'practica-2', component: Practica2Component, data: { animation: 'Practica2'} },
+  { path: 'practica-3', component: Practica3Component, data: { animation: 'Practica3'} },
+  { path: 'practica-4', component: Practica4Component, data: { animation: 'Practica4'} },
+  { path: 'practica-5', component: Practica5Component, data: { animation: 'Practica5'} }
 ];

@@ -6,7 +6,7 @@ import { SharedIconLinkComponent } from '../shared-icon-link/shared-icon-link.co
 
 @Component({
   selector: 'app-menu-component',
-  imports: [RouterModule, SharedIconLinkComponent],
+  imports: [RouterModule],
   templateUrl: './menu-component.component.html',
   styleUrl: './menu-component.component.css'
 })

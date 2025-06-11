@@ -1,27 +1,110 @@
-<h2>Práctica 2 - Interpolación</h2>
-
-<h4>Ejercicio #1</h4>
-<p><strong>Mensaje:</strong> {{ welcomeMessage }}</p>
-<hr>
-
-<h4>Ejercicio #2</h4>
-<p>Nombre: {{ person.name }}</p>
-<p>Edad: {{ person.age }}</p>
-<hr>
-
-<h4>Ejercicio #3</h4>
-<p>La resta de los valores es: {{ num1 - num2 }}</p>
-<p>La multiplicación de los valores es: {{ num3 * num4 }}</p>
-<hr>
-
-<h4>Ejercicio #4</h4>
-<p>El área de un círculo con radio {{ radius }} es {{ calcularArea(radius) }}</p>
-<p>El área (opcional) con Math.PI es: {{ calcularAreaOpcional() }}</p>
-<hr>
-
-<h4>Ejercicio #5</h4>
-<p>{{ isLoggedIn ? 'Bienvenido de nuevo' : 'Por favor, inicia sesión' }}</p>
-<hr>
-
-<h4>Ejercicio #6</h4>
-<p>La fecha de hoy es: {{ currentDate | date:'fullDate' }}</p>
+  <section class="practice-description">
+    <h3 class="text-success fw-bold">Práctica 2: Interpolación de Datos</h3>
+    <p>
+      El objetivo de esta práctica es aplicar <strong>interpolación</strong> para mostrar en pantalla distintos valores,
+      expresiones y llamadas a métodos desde el componente.
+      Se busca fortalecer la comprensión de cómo Angular renderiza datos dinámicos en el template.
+    </p>
+  
+    <div class="mt-3">
+      <h6 class="fw-bold">Ejercicios e instrucciones:</h6>
+      <ol>
+        <li>
+          <strong>Interpolación básica.</strong>
+          <ul class="mt-2">
+            <li>Mostrar un mensaje de bienvenida utilizando interpolación. Mostrar el valor de esta variable en pantalla
+              <code>welcomeMessage: string = 'Bienvenidos a mi aplicación Angular'</code>.
+            </li>
+          </ul>
+        </li>
+  
+        <li>
+          <strong>Interpolación con propiedades de clase.</strong>
+          <ul class="mt-2">
+            <li>Mostrar el nombre y la edad de una persona utilizando interpolación. Ejemplo:
+              <strong>TS:</strong><code> person = &#123; name: 'Juan', age: 30 &#125;;</code>, <strong>
+                HTML:</strong><code> &#123; &#123; person.name &#125; &#125;;</code>. Falta mostrar <code>age</code>.
+            </li>
+          </ul>
+        </li>
+  
+        <li>
+          <strong>Interpolación con expresiones:</strong>
+          <ul class="mt-2">
+            <li>Mostrar la resta de <code>num1 = 12 y num2 = 20</code>, utilizando interpolación y expresiones, agregarle
+              texto a la respuesta que vas a mostrar en pantalla.</li>
+            <li>Mostrar la multiplicación de <code>num1 = 8</code> y <code>num2 = 4</code>, utilizando interpolación y
+              expresiones, agregarle texto a la respuesta que vas a mostrar en pantalla.</li>
+          </ul>
+        </li>
+  
+        <li>
+          <strong>Interpolación con métodos:</strong>
+          <ul class="mt-2">
+            <li>Utilizar un método para calcular y mostrar el resultado de una operación. Ejemplo:
+              <strong>TS:</strong><code> radius = 5;</code>,
+              <strong>HTML:</strong><code> El área del círculo es &#123; &#123; calculateArea(radius) &#125; &#125;</code>.
+            </li>
+            <li><strong>Ejercicio opcional:</strong> Deben usar el método <strong>Math.PI</strong> y
+              <strong>Math.POW</strong>.
+            </li>
+          </ul>
+        </li>
+  
+        <li>
+          <strong>Interpolación con condiciones:</strong>
+          <ul class="mt-2">
+            <li>Mostrar un mensaje condicional basado en el valor de una propiedad. Ejemplo:
+              <strong>TS:</strong><code> isLoggedIn: boolean = true;</code>,
+              <strong>HTML:</strong><code> &#123; &#123; isLoggedIn ? 'Bienvenido de nuevo' : 'Por favor, inicia sesión' &#125; &#125;</code>
+            </li>
+          </ul>
+        </li>
+  
+        <li>
+          <strong>Interpolación con pipe:</strong>
+          <ul class="mt-2">
+            <li>Formatear una fecha utilizando el pipe <strong>date</strong>. Ejemplo:
+              <code>currentDate: Date = new Date();</code>.
+            </li>
+          </ul>
+        </li>
+  
+      </ol>
+  
+    </div>
+  </section>
+  
+  <h4>Ejercicio #1</h4>
+  <section>
+    <p><strong>Mensaje:</strong> {{ welcomeMessage }}</p>
+  </section>
+  
+  <h4>Ejercicio #2</h4>
+  <section>
+    <p><strong>Nombre:</strong> {{ person.name }}</p>
+    <p><strong>Edad:</strong> {{ person.age }}</p>
+  </section>
+  
+  <h4>Ejercicio #3</h4>
+  <section>
+    <p><strong>La resta de los valores es:</strong> {{ num1 - num2 }}</p>
+    <p><strong>La multiplicación de los valores es:</strong> {{ num3 * num4 }}</p>
+  </section>
+  
+  <h4>Ejercicio #4</h4>
+  <section>
+    <p><strong>El área de un círculo con radio {{ radius }} es:</strong> {{ calcularArea(radius) }}</p>
+    <p><strong>El área (opcional) con Math.PI es:</strong> {{ calcularAreaOpcional() }}</p>
+    </section>
+  
+  <h4>Ejercicio #5</h4>
+  <section>
+    <p><strong>{{ isLoggedIn ? 'Bienvenido de nuevo' : 'Por favor, inicia sesión' }}</strong></p>
+  </section>
+  
+  <h4>Ejercicio #6</h4>
+  <section>
+    <p><strong>La fecha de hoy es:</strong>  {{ currentDate | date:'fullDate' }}</p>
+  </section>
+  

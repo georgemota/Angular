@@ -1,0 +1,21 @@
+.footer {
+    width: 100%;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    position: relative;
+  }
+  
+  .footer a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  
+  .footer i {
+    transition: transform 0.3s ease;
+  }
+  
+  .footer i:hover {
+    transform: scale(1.2);
+  }
+  
+  
