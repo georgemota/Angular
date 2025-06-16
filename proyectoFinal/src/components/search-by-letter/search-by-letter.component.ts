@@ -1,23 +1,57 @@
 import { Component } from '@angular/core';
 import { MealService } from '../../services/mealService/meal.service';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search-by-letter',
-  imports:[FormsModule, NgFor],
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf, NgFor],
   templateUrl: './search-by-letter.component.html'
 })
 export class SearchByLetterComponent {
+  form: FormGroup;
   meals: any[] = [];
-  letter = '';
+  alertaSinResultados = false;
 
-  constructor(private mealService: MealService) {}
+  constructor(private fb: FormBuilder, private mealService: MealService) {
+    this.form = this.fb.group({
+      letter: ['']
+    });
+  }
 
   search() {
-    if (!this.letter || this.letter.length !== 1) return;
-    this.mealService.searchByFirstLetter(this.letter).subscribe(response => {
-      this.meals = response.meals || [];
+    this.alertaSinResultados = false;
+    const letter = this.form.value.letter;
+
+    if (!letter || letter.length !== 1) {
+      this.meals = [];
+      return;
+    }
+
+    this.mealService.searchByFirstLetter(letter).subscribe((response) => {
+      if (response.meals === null) {
+        this.meals = [];
+        this.alertaSinResultados = true;
+        setTimeout(() => {
+          this.alertaSinResultados = false;
+        }, 10000);
+      } else {
+        this.meals = response.meals;
+      }
     });
+  }
+
+  getIngredients(meal: any): string[] {
+    const ingredients: string[] = [];
+    for (let i = 1; i <= 20; i++) {
+      const ing = meal[`strIngredient${i}`];
+      const measure = meal[`strMeasure${i}`];
+      if (ing && ing.trim() !== '') {
+        ingredients.push(`${measure ? measure.trim() : ''} ${ing.trim()}`.trim());
+      }
+    }
+    return ingredients;
   }
 }

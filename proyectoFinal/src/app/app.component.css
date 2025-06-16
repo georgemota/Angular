@@ -1,9 +1,22 @@
 /* Estilos de layout global */
-.app-wrapper {
-  background-color: #f9f9f9;
-}
-
 main {
   min-height: 60vh;
   position: relative;
 }
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fdf4e7;
+  z-index: 9999;
+}
+
+.splash-img {
+  width: 300px;
+  max-width: 80%;
+  border-radius: 1cap;
+}
+

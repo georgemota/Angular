@@ -1,4 +1,19 @@
-<div class="app-wrapper d-flex flex-column min-vh-100">
+<!-- Splash screen -->
+<div *ngIf="mostrarSplash" class="splash-screen d-flex justify-content-center align-items-center">
+  <img
+  src="assets/splash.png"
+  [ngClass]="{
+    'animate__animated': true,
+    'animate__zoomIn': !desaparecerSplash,
+    'animate__zoomOut': desaparecerSplash
+  }"
+  class="splash-img"
+  alt="Welcome"
+/>
+</div>
+
+<!-- Contenido de la app -->
+<div *ngIf="!mostrarSplash" class="app-wrapper d-flex flex-column min-vh-100">
   <app-menu-component></app-menu-component>
 
   <main class="flex-grow-1 p-4">

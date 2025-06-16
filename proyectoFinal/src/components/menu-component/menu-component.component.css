@@ -15,8 +15,7 @@
 
 .nav-link.active {
   background-color: #ffffff;
-  color: #198754 !important;
-  /* Verde Bootstrap */
+  color: #4a2e21 !important;
   font-weight: bold;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 }
@@ -30,7 +29,7 @@
 }
 
 .custom-logo {
-  height: 6rem;
+  height: 8rem;
   width: 10rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -45,11 +44,14 @@
 
 .nav-link.active {
   background-color: #fff;
-  color: #198754 !important;
+  color: #4a2e21 !important;
   font-weight: bold;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 }
 
+.animate-brand {
+  animation: fade-in-up 0.6s ease forwards;
+}
 
 @keyframes pulse-in {
   0% {
@@ -79,6 +81,3 @@
   }
 }
 
-.animate-brand {
-  animation: fade-in-up 0.6s ease forwards;
-}

@@ -1,23 +1,51 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NgIf, NgFor } from '@angular/common';
 import { MealService } from '../../services/mealService/meal.service';
-import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-search-by-name',
-  imports:[FormsModule, NgFor],
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf, NgFor],
   templateUrl: './search-by-name.component.html'
 })
 export class SearchByNameComponent {
+  form: FormGroup;
   meals: any[] = [];
-  searchName = '';
+  alertaSinResultados: boolean = false;
 
-  constructor(private mealService: MealService) {}
+  constructor(private fb: FormBuilder, private mealService: MealService) {
+    this.form = this.fb.group({
+      searchName: ['']
+    });
+  }
 
   search() {
-    if (!this.searchName) return;
-    this.mealService.searchByName(this.searchName).subscribe(response => {
-      this.meals = response.meals || [];
+    this.alertaSinResultados = false;
+    const name = this.form.value.searchName;
+
+    this.mealService.searchByName(name).subscribe((response) => {
+      if (response.meals === null) {
+        this.meals = [];
+        this.alertaSinResultados = true;
+        setTimeout(() => {
+          this.alertaSinResultados = false;
+        }, 10000);
+      } else {
+        this.meals = response.meals;
+      }
     });
+  }
+
+  getIngredients(meal: any): string[] {
+    const ingredients: string[] = [];
+    for (let i = 1; i <= 20; i++) {
+      const ing = meal[`strIngredient${i}`];
+      const measure = meal[`strMeasure${i}`];
+      if (ing && ing.trim() !== '') {
+        ingredients.push(`${measure ? measure.trim() : ''} ${ing.trim()}`.trim());
+      }
+    }
+    return ingredients;
   }
 }

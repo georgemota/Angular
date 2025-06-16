@@ -6,20 +6,30 @@ import { FooterComponent } from '../components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    CommonModule,
-    RouterModule,
-    RouterOutlet,
-    MenuComponentComponent,
-    FooterComponent
-  ],
+  imports: [CommonModule, RouterModule, RouterOutlet, MenuComponentComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = '';
 
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet?.activatedRouteData?.['animation'];
-  }
+    mostrarSplash = true;
+    desaparecerSplash = false;
+  
+    ngOnInit() {
+      // Después de 4s empieza la animación de salida
+      setTimeout(() => {
+        this.desaparecerSplash = true;
+  
+        // Espera 1s más para ocultar el splash completamente (duración de zoomOut)
+        setTimeout(() => {
+          this.mostrarSplash = false;
+        }, 1000);
+      }, 4000);
+    }
+
+title = '';
+
+prepareRoute(outlet: RouterOutlet) {
+  return outlet?.activatedRouteData?.['animation'];
+}
 }

@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
-body {
-  font-family: 'Rubik', sans-serif;
+.bg-food {
+  background-color: #5e3929 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.bg-food:hover {
+  background-color: #4a2e21 !important;
+}
+
+.card-title {
+  color: #5e3929 !important;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+section {
+  color: #4a2e21 !important;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease;
+}
+
+section:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #4a2e21 !important;
+  position: relative;
+}
+
+html, body {
+  height: 100%;
+  background-color: #fdf4e7;
+  background-image: url('https://www.transparenttextures.com/patterns/gray-floral.png');
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: fixed;
 }
