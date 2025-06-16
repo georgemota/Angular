@@ -1,55 +1,55 @@
 <section class="practice-description mb-4">
-  <h3 class="fw-bold">Práctica Final Angular: Menú Digital</h3>
+  <h3 class="fw-bold">Final Angular Project: Digital Menu</h3>
   <p>
-    El objetivo de esta práctica es desarrollar una página web utilizando <strong>Angular</strong>, centrada en un <strong>Menú Digital</strong> para un restaurante. El proyecto debe integrar funcionalidades interactivas conectadas a la API pública <a href="https://www.themealdb.com" target="_blank">TheMealDB</a>, asegurando una experiencia visual atractiva y profesional.
+    The goal of this project is to develop a website using <strong>Angular</strong>, focused on a <strong>Digital Menu</strong> for a restaurant. The project should integrate interactive features connected to the public API <a href="https://www.themealdb.com" target="_blank">TheMealDB</a>, ensuring a visually appealing and professional user experience.
   </p>
 
   <div class="mt-3">
-    <h6 class="fw-bold">1. Pantalla Principal (Home)</h6>
+    <h6 class="fw-bold">1. Home Screen</h6>
     <ul>
-      <li>Debe incluir tres botones, cada uno enlazado a una funcionalidad específica (buscar por nombre, por letra y platillo aleatorio).</li>
-      <li>Diseño limpio, organizado y con una estética que simule un menú digital de restaurante.</li>
+      <li>It must include three buttons, each linked to a specific feature (search by name, by letter, and random dish).</li>
+      <li>Clean, organized design with an aesthetic that simulates a restaurant's digital menu.</li>
     </ul>
 
-    <h6 class="fw-bold mt-4">2. Servicio para consumir la API TheMealDB</h6>
-    <p>Implementar un servicio Angular dedicado para manejar las peticiones HTTP:</p>
+    <h6 class="fw-bold mt-4">2. TheMealDB API Service</h6>
+    <p>Implement a dedicated Angular service to handle HTTP requests:</p>
     <ul>
-      <li><strong>Petición por nombre:</strong> <code>https://themealdb.com/api/json/v1/1/search.php?s=Arrabiata</code></li>
-      <li><strong>Petición por letra:</strong> <code>https://themealdb.com/api/json/v1/1/search.php?f=a</code></li>
-      <li><strong>Petición aleatoria:</strong> <code>https://themealdb.com/api/json/v1/1/random.php</code></li>
+      <li><strong>Search by name:</strong> <code>https://themealdb.com/api/json/v1/1/search.php?s=Arrabiata</code></li>
+      <li><strong>Search by letter:</strong> <code>https://themealdb.com/api/json/v1/1/search.php?f=a</code></li>
+      <li><strong>Random dish:</strong> <code>https://themealdb.com/api/json/v1/1/random.php</code></li>
     </ul>
 
-    <h6 class="fw-bold mt-4">3. Componentes desarrollados</h6>
+    <h6 class="fw-bold mt-4">3. Developed Components</h6>
     <ul>
-      <li><code>SearchByNameComponent</code>: Permite buscar platillos por nombre usando <code>ReactiveForms</code>. Aplica animaciones <code>zoomIn</code> para mostrar resultados.</li>
-      <li><code>SearchByLetterComponent</code>: Permite buscar por una letra inicial. Incluye spinner y animación en los resultados.</li>
-      <li><code>RandomMealComponent</code>: Muestra un platillo aleatorio al iniciar o presionar un botón. Usa animaciones <code>fadeOut</code> y <code>fadeIn</code>.</li>
+      <li><code>SearchByNameComponent</code>: Allows searching for meals by name using <code>ReactiveForms</code>. Applies <code>zoomIn</code> animations to display results.</li>
+      <li><code>SearchByLetterComponent</code>: Allows search by initial letter. Includes a loading spinner and result animation.</li>
+      <li><code>RandomMealComponent</code>: Displays a random dish on startup or when a button is pressed. Uses <code>fadeOut</code> and <code>fadeIn</code> animations.</li>
     </ul>
 
-    <h6 class="fw-bold mt-4">4. Estructura y servicios</h6>
+    <h6 class="fw-bold mt-4">4. Structure and Services</h6>
     <ul>
-      <li>Se centraliza la lógica en un servicio llamado <code>MealService</code>.</li>
-      <li>Los ingredientes se procesan mediante una función reutilizable por componente.</li>
+      <li>The logic is centralized in a service called <code>MealService</code>.</li>
+      <li>Ingredients are processed using a reusable function within each component.</li>
     </ul>
 
-    <h6 class="fw-bold mt-4">5. Sistema de carga global</h6>
+    <h6 class="fw-bold mt-4">5. Global Loading System</h6>
     <ul>
-      <li>Se utiliza un <strong>spinner de carga</strong> en todos los componentes mientras se reciben datos e imágenes.</li>
-      <li>El contenido se oculta hasta que todo esté listo, usando animaciones suaves de entrada.</li>
+      <li>A <strong>loading spinner</strong> is shown in all components while waiting for data and images.</li>
+      <li>Content remains hidden until everything is ready, then appears with smooth entrance animations.</li>
     </ul>
 
-    <h6 class="fw-bold mt-4">6. Diseño visual</h6>
+    <h6 class="fw-bold mt-4">6. Visual Design</h6>
     <ul>
-      <li>Colores personalizados en tonos marrón usando la clase <code>.bg-food</code>.</li>
-      <li>Tipografía de Google Fonts (<code>Rubik</code>) y diseño responsive con <code>Bootstrap</code>.</li>
-      <li>Animaciones de <code>animate.css</code> como <code>zoomIn</code>, <code>fadeOut</code> y <code>zoomOut</code>.</li>
-      <li>Fondo texturizado para simular papel o menú impreso, integrado con <code>background-image</code>.</li>
+      <li>Custom brown-themed colors using the <code>.bg-food</code> class.</li>
+      <li>Typography from Google Fonts (<code>Rubik</code>) and responsive design with <code>Bootstrap</code>.</li>
+      <li>Animations from <code>animate.css</code> such as <code>zoomIn</code>, <code>fadeOut</code>, and <code>zoomOut</code>.</li>
+      <li>Textured background to simulate paper or printed menu, using <code>background-image</code>.</li>
     </ul>
 
-    <h6 class="fw-bold mt-4">7. Extras implementados</h6>
+    <h6 class="fw-bold mt-4">7. Extra Features</h6>
     <ul>
-      <li><strong>Pantalla de bienvenida (splash screen):</strong> imagen con animación <code>zoomIn</code> y salida <code>zoomOut</code>.</li>
-      <li><strong>Manejo de errores:</strong> muestra alerta Bootstrap con color personalizado si no se encuentran resultados.</li>
+      <li><strong>Welcome screen (splash screen):</strong> image with <code>zoomIn</code> animation and exit <code>zoomOut</code>.</li>
+      <li><strong>Error handling:</strong> shows a Bootstrap alert with custom color if no results are found.</li>
     </ul>
   </div>
 </section>
