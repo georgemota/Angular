@@ -23,8 +23,8 @@ export class AppComponent {
         // Espera 1s más para ocultar el splash completamente (duración de zoomOut)
         setTimeout(() => {
           this.mostrarSplash = false;
-        }, 1000);
-      }, 4000);
+        }, 500);
+      }, 3000);
     }
 
 title = '';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ReloadService } from '../../services/reload-service.service';
+import { ReloadService } from '../../services/reload-service/reload-service.service';
 import { SharedIconLinkComponent } from '../shared-icon-link/shared-icon-link.component';
 
 

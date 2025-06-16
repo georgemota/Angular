@@ -1,0 +1,9 @@
+form {
+  background-color: #fff;
+  border-radius: 0.75rem;
+}
+
+input:focus {
+  border-color: #5e3929;
+  box-shadow: 0 0 0 0.2rem rgba(94, 57, 41, 0.25);
+}

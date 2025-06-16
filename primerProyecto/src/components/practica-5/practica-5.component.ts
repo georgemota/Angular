@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { PerritoRestApiService } from '../../services/perrito-rest-api.service';
-import { ReloadService } from '../../services/reload-service.service';
+import { PerritoRestApiService } from '../../services/perrito-rest/perrito-rest-api.service';
+import { ReloadService } from '../../services/reload-service/reload-service.service';
 
 @Component({
   selector: 'app-practica-5',
