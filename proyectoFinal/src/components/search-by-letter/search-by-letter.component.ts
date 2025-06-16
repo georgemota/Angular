@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search-by-letter',
-  standalone: true,
   imports: [ReactiveFormsModule, NgIf, NgFor],
   templateUrl: './search-by-letter.component.html'
 })

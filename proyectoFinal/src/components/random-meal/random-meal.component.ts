@@ -4,7 +4,6 @@ import { NgIf, NgFor, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-random-meal',
-  standalone: true,
   imports: [NgIf, NgFor, NgClass],
   templateUrl: './random-meal.component.html'
 })

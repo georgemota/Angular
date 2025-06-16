@@ -5,7 +5,6 @@ import { MealService } from '../../services/mealService/meal.service';
 
 @Component({
   selector: 'app-search-by-name',
-  standalone: true,
   imports: [ReactiveFormsModule, NgIf, NgFor],
   templateUrl: './search-by-name.component.html'
 })
@@ -16,28 +15,28 @@ export class SearchByNameComponent {
 
   constructor(private fb: FormBuilder, private mealService: MealService) {
     this.form = this.fb.group({
-      searchName: ['']
+      searchName: [''] //Campo searchName.
     });
   }
 
   search() {
-    this.alertaSinResultados = false;
-    const name = this.form.value.searchName;
+    this.alertaSinResultados = false; //Reinicia la alerta.
+    const name = this.form.value.searchName; //Obtiene el valor ingresado en el campo searchName.
 
     this.mealService.searchByName(name).subscribe((response) => {
-      if (response.meals === null) {
+      if (response.meals === null) { //Si no hay resultados muestra una alerta por 10 segundos
         this.meals = [];
         this.alertaSinResultados = true;
         setTimeout(() => {
           this.alertaSinResultados = false;
-        }, 10000);
+        }, 10000); // 10 segundos en milisegundos
       } else {
-        this.meals = response.meals;
+        this.meals = response.meals; //resultados encontrados y utilizados en HTML
       }
     });
   }
 
-  getIngredients(meal: any): string[] {
+  getIngredients(meal: any): string[] { //Extrae un máximo de 20 ingredientes y sus cantidades. Devuelve la data en un array.
     const ingredients: string[] = [];
     for (let i = 1; i <= 20; i++) {
       const ing = meal[`strIngredient${i}`];
