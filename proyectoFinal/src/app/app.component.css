@@ -1,9 +1,9 @@
+/* Estilos de layout global */
 .app-wrapper {
-    background-color: #f9f9f9;
-  }
-  
-  main {
-    min-height: 60vh;
-    position: relative;
-  }
-  
+  background-color: #f9f9f9;
+}
+
+main {
+  min-height: 60vh;
+  position: relative;
+}

@@ -1,0 +1,8 @@
+<input [(ngModel)]="letter" maxlength="1" placeholder="Letra inicial" />
+<button (click)="search()">Buscar</button>
+
+<div *ngFor="let meal of meals">
+  <h3>{{ meal.strMeal }}</h3>
+  <img [src]="meal.strMealThumb" />
+  <p>{{ meal.strInstructions }}</p>
+</div>

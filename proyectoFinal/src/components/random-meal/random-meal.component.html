@@ -1,0 +1,7 @@
+<button (click)="getMeal()">Mostrar otro platillo</button>
+
+<div *ngIf="meal">
+  <h3>{{ meal.strMeal }}</h3>
+  <img [src]="meal.strMealThumb" />
+  <p>{{ meal.strInstructions }}</p>
+</div>

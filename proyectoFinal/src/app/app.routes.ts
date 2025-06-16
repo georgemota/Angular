@@ -1,15 +1,11 @@
 import { Routes } from '@angular/router';
-import { Practica1Component } from '../components/practica-1/practica-1.component';
-import { Practica2Component } from '../components/practica-2/practica-2.component';
-import { Practica3Component } from '../components/practica-3/practica-3.component';
-import { Practica4Component } from '../components/practica-4/practica-4.component';
-import { Practica5Component } from '../components/practica-5/practica-5.component';
+import { SearchByNameComponent } from '../components/search-by-name/search-by-name.component';
+import { SearchByLetterComponent } from '../components/search-by-letter/search-by-letter.component';
+import { RandomMealComponent } from '../components/random-meal/random-meal.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'practica-1', pathMatch: 'full' },
-  { path: 'practica-1', component: Practica1Component, data: { animation: 'Practica1'} },
-  { path: 'practica-2', component: Practica2Component, data: { animation: 'Practica2'} },
-  { path: 'practica-3', component: Practica3Component, data: { animation: 'Practica3'} },
-  { path: 'practica-4', component: Practica4Component, data: { animation: 'Practica4'} },
-  { path: 'practica-5', component: Practica5Component, data: { animation: 'Practica5'} }
+  { path: '', redirectTo: 'search-by-name', pathMatch: 'full' },
+  { path: 'search-by-name', component: SearchByNameComponent, data: { animation: 'Search-by-meal'} },
+  { path: 'search-by-letter', component: SearchByLetterComponent, data: { animation: 'Search-by-letter'} },
+  { path: 'random-meal', component: RandomMealComponent, data: { animation: 'Random-meal'} }
 ];

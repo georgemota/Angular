@@ -1,0 +1,29 @@
+<div class="container my-4">
+  <div class="input-group mb-4 shadow-sm animate__animated animate__fadeInDown">
+    <input
+      [(ngModel)]="searchName"
+      type="text"
+      class="form-control"
+      placeholder="Nombre del platillo"
+    />
+    <button (click)="search()" class="btn btn-success">
+      Buscar
+    </button>
+  </div>  
+
+  <div *ngFor="let meal of meals" class="card mb-4 shadow-sm animate__animated animate__fadeInUp">
+    <div class="row g-0 align-items-center">
+      <div class="col-md-4 text-center p-3">
+        <img [src]="meal.strMealThumb" class="img-fluid rounded" alt="{{ meal.strMeal }}" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{ meal.strMeal }}</h3>
+          <p class="card-text description-text">
+            {{ meal.strInstructions }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
