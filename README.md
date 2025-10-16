@@ -1,4 +1,4 @@
-# Angular Projects Demo
+## Angular Projects Demo
 
 ![Angular Projects Cover](./assets/cover.png)
 
@@ -6,7 +6,7 @@ Este repositorio contiene dos proyectos desarrollados con **Angular**, desplegad
 
 Cada proyecto se puede visitar en línea desde los siguientes enlaces:
 
-## 🚀 Deploys
+## Deploys
 
 - **Primer Proyecto**  
   [https://georgemota.github.io/Angular/primerProyecto](https://georgemota.github.io/Angular/primerProyecto)
