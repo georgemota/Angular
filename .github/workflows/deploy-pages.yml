@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: 20
 
+      # ---------- primerProyecto ----------
       - name: Install deps (primerProyecto)
         working-directory: primerProyecto
         run: |
@@ -34,9 +35,17 @@ jobs:
           npm run build -- \
             --configuration=production \
             --base-href="/$REPO_NAME/primerProyecto/"
-          # SPA fallback
-          cp dist/primer-proyecto/index.html dist/primer-proyecto/404.html
 
+      - name: SPA fallback (primerProyecto)
+        working-directory: primerProyecto
+        run: |
+          # Detecta /browser si existe; si no, usa la raíz de dist
+          OUT="dist/primer-proyecto/browser"
+          if [ ! -d "$OUT" ]; then OUT="dist/primer-proyecto"; fi
+          echo "Usando OUT=$OUT"
+          cp "$OUT/index.html" "$OUT/404.html"
+
+      # ---------- proyectoFinal ----------
       - name: Install deps (proyectoFinal)
         working-directory: proyectoFinal
         run: |
@@ -49,18 +58,33 @@ jobs:
           npm run build -- \
             --configuration=production \
             --base-href="/$REPO_NAME/proyectoFinal/"
-          # SPA fallback
-          cp dist/primer-proyecto/index.html dist/primer-proyecto/404.html
 
+      - name: SPA fallback (proyectoFinal)
+        working-directory: proyectoFinal
+        run: |
+          OUT="dist/primer-proyecto/browser"
+          if [ ! -d "$OUT" ]; then OUT="dist/primer-proyecto"; fi
+          echo "Usando OUT=$OUT"
+          cp "$OUT/index.html" "$OUT/404.html"
+
+      # ---------- Empaquetar ambas apps ----------
       - name: Prepare combined artifact
         run: |
+          # Detecta salida real de cada app
+          OUT1="primerProyecto/dist/primer-proyecto/browser"
+          [ -d "$OUT1" ] || OUT1="primerProyecto/dist/primer-proyecto"
+
+          OUT2="proyectoFinal/dist/primer-proyecto/browser"
+          [ -d "$OUT2" ] || OUT2="proyectoFinal/dist/primer-proyecto"
+
           mkdir -p site/primerProyecto site/proyectoFinal
-          cp -r primerProyecto/dist/primer-proyecto/* site/primerProyecto/
-          cp -r proyectoFinal/dist/primer-proyecto/* site/proyectoFinal/
-          # índice simple opcional
+          cp -r "$OUT1"/* site/primerProyecto/
+          cp -r "$OUT2"/* site/proyectoFinal/
+
+          # index simple opcional
           cat > site/index.html <<'HTML'
           <!doctype html><meta charset="utf-8">
-          <title>Apps</title>
+          <title>Mis apps</title>
           <h1>Mis apps</h1>
           <ul>
             <li><a href="./primerProyecto/">primerProyecto</a></li>
