@@ -13,8 +13,8 @@ Cada proyecto se puede visitar en línea desde los siguientes enlaces:
   
 ## Credenciales de acceso (demo)
 
-- **Usuario:** `admin`
-- **Contraseña:** `1234`
+- **Usuario:** `superAdmin`
+- **Contraseña:** `Angular@074`
 
 > ⚠️ Estas credenciales son solo para fines de demostración.
 
