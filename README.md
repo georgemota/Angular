@@ -27,8 +27,8 @@ Cada proyecto se puede visitar en línea desde los siguientes enlaces:
 
 Cada aplicación se encuentra en su propia carpeta dentro del repositorio:
 
-1. Angular/primerProyecto
-2. Angular/proyectoFinal
+- Angular/primerProyecto
+- Angular/proyectoFinal
 
 ---
 
@@ -45,6 +45,7 @@ El despliegue se realiza automáticamente con un flujo de trabajo (`.github/work
 - Bootstrap 5
 - GitHub Actions
 - GitHub Pages
+- Transparent Textures
 
 ---
 
