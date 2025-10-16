@@ -1,0 +1,56 @@
+# .github/workflows/deploy-pages.yml
+name: Deploy Angular to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+env:
+  # ⬇️ Ajusta al nombre REAL de tu proyecto en angular.json -> "projects.<NAME>"
+  PROJECT_NAME: primer-proyecto
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+
+      # Compila producción. Para repos tipo "project pages":
+      # base-href debe ser "/<repo>/"
+      - name: Build Angular
+        run: |
+          REPO_NAME=${GITHUB_REPOSITORY#*/}              # obtiene el nombre del repo
+          npm run build -- \
+            --configuration=production \
+            --base-href=/$REPO_NAME/
+
+      # Fix SPA: copia index.html -> 404.html para que las rutas cliente funcionen
+      - name: SPA 404 fallback
+        run: |
+          OUT="dist/$PROJECT_NAME/browser"
+          cp "$OUT/index.html" "$OUT/404.html"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/${{ env.PROJECT_NAME }}/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4
