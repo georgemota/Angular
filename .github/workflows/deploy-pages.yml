@@ -1,5 +1,4 @@
-# .github/workflows/deploy-pages.yml
-name: Deploy Angular to GitHub Pages
+name: Deploy 2 Angular apps (subcarpetas) to GitHub Pages
 on:
   push:
     branches: [ main ]
@@ -14,10 +13,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-env:
-  # ⬇️ Ajusta al nombre REAL de tu proyecto en angular.json -> "projects.<NAME>"
-  PROJECT_NAME: primer-proyecto
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,26 +21,56 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
 
-      # Compila producción. Para repos tipo "project pages":
-      # base-href debe ser "/<repo>/"
-      - name: Build Angular
+      - name: Install deps (primerProyecto)
+        working-directory: primerProyecto
         run: |
-          REPO_NAME=${GITHUB_REPOSITORY#*/}              # obtiene el nombre del repo
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Build (primerProyecto)
+        working-directory: primerProyecto
+        run: |
+          REPO_NAME=${GITHUB_REPOSITORY#*/}
           npm run build -- \
             --configuration=production \
-            --base-href=/$REPO_NAME/
+            --base-href="/$REPO_NAME/primerProyecto/"
+          # SPA fallback
+          cp dist/primer-proyecto/index.html dist/primer-proyecto/404.html
 
-      # Fix SPA: copia index.html -> 404.html para que las rutas cliente funcionen
-      - name: SPA 404 fallback
+      - name: Install deps (proyectoFinal)
+        working-directory: proyectoFinal
         run: |
-          OUT="dist/$PROJECT_NAME/browser"
-          cp "$OUT/index.html" "$OUT/404.html"
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Build (proyectoFinal)
+        working-directory: proyectoFinal
+        run: |
+          REPO_NAME=${GITHUB_REPOSITORY#*/}
+          npm run build -- \
+            --configuration=production \
+            --base-href="/$REPO_NAME/proyectoFinal/"
+          # SPA fallback
+          cp dist/primer-proyecto/index.html dist/primer-proyecto/404.html
+
+      - name: Prepare combined artifact
+        run: |
+          mkdir -p site/primerProyecto site/proyectoFinal
+          cp -r primerProyecto/dist/primer-proyecto/* site/primerProyecto/
+          cp -r proyectoFinal/dist/primer-proyecto/* site/proyectoFinal/
+          # índice simple opcional
+          cat > site/index.html <<'HTML'
+          <!doctype html><meta charset="utf-8">
+          <title>Apps</title>
+          <h1>Mis apps</h1>
+          <ul>
+            <li><a href="./primerProyecto/">primerProyecto</a></li>
+            <li><a href="./proyectoFinal/">proyectoFinal</a></li>
+          </ul>
+          HTML
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/${{ env.PROJECT_NAME }}/browser
+          path: site
 
   deploy:
     needs: build
