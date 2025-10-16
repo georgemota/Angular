@@ -10,6 +10,13 @@ Cada proyecto se puede visitar en línea desde los siguientes enlaces:
 
 - **Primer Proyecto**  
   [https://georgemota.github.io/Angular/primerProyecto](https://georgemota.github.io/Angular/primerProyecto)
+  
+## Credenciales de acceso (demo)
+
+- **Usuario:** `admin`
+- **Contraseña:** `1234`
+
+> ⚠️ Estas credenciales son solo para fines de demostración.
 
 - **Proyecto Final**  
  [https://georgemota.github.io/Angular/proyectoFinal](https://georgemota.github.io/Angular/proyectoFinal)
@@ -21,14 +28,6 @@ Cada proyecto se puede visitar en línea desde los siguientes enlaces:
 Cada aplicación se encuentra en su propia carpeta dentro del repositorio:
 
 1. Angular/primerProyecto
-
-## Credenciales de acceso (demo)
-
-- **Usuario:** `admin`
-- **Contraseña:** `1234`
-
-> ⚠️ Estas credenciales son solo para fines de demostración.
-
 2. Angular/proyectoFinal
 
 ---
