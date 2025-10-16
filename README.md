@@ -45,6 +45,7 @@ El despliegue se realiza automáticamente con un flujo de trabajo (`.github/work
 - Bootstrap 5
 - GitHub Actions
 - GitHub Pages
+- Transparent Textures
 
 ---
 
