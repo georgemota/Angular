@@ -20,8 +20,8 @@ Cada proyecto se puede visitar en línea desde los siguientes enlaces:
 
 Cada aplicación se encuentra en su propia carpeta dentro del repositorio:
 
-Angular/primerProyecto
-Angular/proyectoFinal
+1. Angular/primerProyecto
+2. Angular/proyectoFinal
 
 ---
 
