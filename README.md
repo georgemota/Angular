@@ -1,6 +1,6 @@
 ## Angular Projects Demo
 
-![Angular Projects Cover](./assets/angularPortada2.jpg)
+![Angular Projects Cover](./assets/angularPortada.jpg)
 
 Este repositorio contiene dos proyectos desarrollados con **Angular**, desplegados automáticamente mediante **GitHub Actions** y **GitHub Pages**.
 
