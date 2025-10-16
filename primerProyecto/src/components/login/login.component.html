@@ -16,6 +16,11 @@
 
         <button class="btn btn-outline-success" type="submit">Ingresar</button>
 
+        <!-- Nota visible con las credenciales de demo -->
+        <div class="alert alert-info mt-3 small" role="note">
+          Credenciales de demo: <strong>admin</strong> / <strong>1234</strong>
+        </div>
+        
         <div *ngIf="loginError" class="alert alert-danger mt-3">
           Credenciales incorrectas.
         </div>
