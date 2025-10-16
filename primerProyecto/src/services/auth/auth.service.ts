@@ -1,25 +1,32 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  login(username: string, password: string): boolean {
-    const storedUser = localStorage.getItem('user');
-    const storedPass = localStorage.getItem('pass');
+  // Claves SOLO para esta app
+  private PREFIX = 'app:primerProyecto:';
+  private KEY_USER = this.PREFIX + 'user';
+  private KEY_PASS = this.PREFIX + 'pass';
+  private KEY_LOGGED = this.PREFIX + 'loggedIn';
 
-    if (username === storedUser && password === storedPass) {
-      localStorage.setItem('loggedIn', 'true');
-      return true;
-    }
-    return false;
+  login(username: string, password: string): boolean {
+    const storedUser = (localStorage.getItem(this.KEY_USER) ?? '').trim();
+    const storedPass = (localStorage.getItem(this.KEY_PASS) ?? '').trim();
+
+    const ok =
+      storedUser === (username ?? '').trim() &&
+      storedPass === (password ?? '').trim();
+
+    if (ok) localStorage.setItem(this.KEY_LOGGED, 'true');
+    else localStorage.removeItem(this.KEY_LOGGED);
+
+    return ok;
   }
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('loggedIn') === 'true';
+    return localStorage.getItem(this.KEY_LOGGED) === 'true';
   }
 
   logout() {
-    localStorage.removeItem('loggedIn');
+    localStorage.removeItem(this.KEY_LOGGED);
   }
 }
